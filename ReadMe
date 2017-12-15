@@ -1,3 +1,7 @@
+This program is using Sparkstreaming and Kafka to track comments real-timely.
+Install Kafka in one fold, put the py code in the same folder, 
+for each step, open a new terminal.
+
 1.# Start Zookeeper
 > bin/zookeeper-server-start.sh config/zookeeper.properties
 
@@ -8,11 +12,11 @@
 > bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic twitterstream
 
 4.# Running app.py
-> python Q3app.py
+> python tweetproducer.py
 
 5.# check whether the data is written to kafka
 > bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic twitterstream --from-beginning
 
 6.# Running streaming sentimental analysis
-> python Q3streamConsumer.py
+> python tweetstreamConsumer.py
 
